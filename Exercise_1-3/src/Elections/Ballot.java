@@ -21,6 +21,14 @@ public abstract class Ballot {
 		}
 		ballotAssociatedCitizen=associatedCitizen;
 	}
+	
+	public Ballot(String add) {//building a ballot with no parties and citizens
+		ballotNumber=ballotNumberCounter++;
+		ballotAddress=add;
+		allParties=new PoliticalParty[0];
+		votes=new int[allParties.length][2];
+		ballotAssociatedCitizen=new Citizen[0];
+	}
 
 	public PoliticalParty findPartyByNum(int num) {
 		for(int i=0;i<allParties.length;i++) {
@@ -81,6 +89,18 @@ public abstract class Ballot {
 
 	public double votingPercentage() {
 		return (double)(votesCount/ballotAssociatedCitizen.length);
+	}
+	
+	public boolean equals(Ballot b) {
+		if(b.ballotAddress==ballotAddress && b.ballotNumber==ballotNumber) {
+			for(int i=0;i<ballotAssociatedCitizen.leanth;i++) {
+				if(b.ballotAssociatedCitizen[i]==null||b.ballotAssociatedCitizen[i]!=ballotAssociatedCitizen[i])
+					return false;
+			}
+			return true;
+			}
+		}
+		return false;
 	}
 
 	public String toString() {
