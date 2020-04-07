@@ -7,7 +7,6 @@ public class test {
 
 	public static void main(String[] args) {
 		
-		
 		Ballot B1=new Ballot("Rosh haHayin")
 		
 		LocalDate D1=LocalDate.of(2000,10,29);
